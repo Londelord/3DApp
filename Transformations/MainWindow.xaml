@@ -24,56 +24,59 @@
         <StackPanel >
             <DockPanel>
                 <Label Content="X:"/>
-                <TextBox x:Name="XInput" Text="{Binding X, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding X, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Y:"/>
-                <TextBox x:Name="YInput" Text="{Binding Y, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding Y, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Z:"/>
-                <TextBox x:Name="ZInput" Text="{Binding Z, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding Z, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Scale X:"/>
-                <TextBox x:Name="ScaleXInput" Text="{Binding ScaleX, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding ScaleX, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Scale Y:"/>
-                <TextBox x:Name="ScaleYInput" Text="{Binding ScaleY, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding ScaleY, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Scale Z:"/>
-                <TextBox x:Name="ScaleZInput" Text="{Binding ScaleZ, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding ScaleZ, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Rotate X:"/>
-                <TextBox x:Name="RotateXInput" Text="{Binding RotationX, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding RotationX, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Rotate Y:"/>
-                <TextBox x:Name="RotateYInput" Text="{Binding RotationY, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding RotationY, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Rotate Z:"/>
-                <TextBox x:Name="RotateZInput" Text="{Binding RotationZ, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
+                <TextBox Text="{Binding RotationZ, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
-                <CheckBox Content="Reflect XOY" x:Name="ReclectXOYInput" 
+                <CheckBox Content="Reflect XOY"
                           IsChecked="{Binding IsReflectedByXOY, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
-                <CheckBox Content="Reflect XOZ" x:Name="ReclectXOZInput"
+                <CheckBox Content="Reflect XOZ"
                           IsChecked="{Binding IsReflectedByXOZ, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
-                <CheckBox Content="Reflect YOZ" x:Name="ReclectYOZInput"
+                <CheckBox Content="Reflect YOZ"
                           IsChecked="{Binding IsReflectedByYOZ, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
                 <ComboBox
                           ItemsSource="{Binding Projections}"
                           SelectedItem="{Binding SelectedProjection, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+            <DockPanel>
+                <Button Click="OnResetButtonClick">Reset</Button>
             </DockPanel>
         </StackPanel>
         

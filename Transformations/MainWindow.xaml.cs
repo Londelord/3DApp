@@ -11,21 +11,25 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-
         _pyramid = new TruncatedPyramid(170, 200, 120);
         DataContext = new MainViewModel(DrawPyramid);
-
     }
 
     private void DrawPyramid()
     {
         MainCanvas.Children.Clear();
+                
+        var viewModel = (MainViewModel)DataContext;
+        
+        _pyramid.Translate(viewModel.X, viewModel.Y, viewModel.Z);
+        _pyramid.Rotate(viewModel.RotationX, viewModel.RotationY, viewModel.RotationZ);
+        _pyramid.Scale(viewModel.ScaleX, viewModel.ScaleY, viewModel.ScaleZ);
+        
         var linesCount = _pyramid.ConnectionsMatrix.GetLength(0);
         var canvasCenterX = MainCanvas.ActualWidth / 2;
         var canvasCenterY = MainCanvas.ActualHeight / 2;
         var transformedMatrix = _pyramid.GetTransformedVertices();
-        
-        var viewModel = (MainViewModel)DataContext;
+  
 
         var projectedMatrix = viewModel.SelectedProjection switch
         {
@@ -50,5 +54,15 @@ public partial class MainWindow : Window
 
             MainCanvas.Children.Add(line);
         }
+    }
+
+    private void OnResetButtonClick(object sender, RoutedEventArgs e)
+    {
+        var viewModel = (MainViewModel)DataContext;
+        
+        viewModel.X = viewModel.Y = viewModel.Z = 0;
+        viewModel.ScaleX = viewModel.ScaleY = viewModel.ScaleZ = 1;
+        viewModel.RotationX = viewModel.RotationY = viewModel.RotationZ = 0;
+        viewModel.IsReflectedByXOY = viewModel.IsReflectedByXOZ = viewModel.IsReflectedByYOZ = false;
     }
 }
