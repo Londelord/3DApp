@@ -18,4 +18,4 @@ C:\Users\londelord\RiderProjects\Transformations\Transformations\obj\Debug\net9.
 C:\Users\londelord\RiderProjects\Transformations\Transformations\obj\Debug\net9.0-windows\Transformations.pdb
 C:\Users\londelord\RiderProjects\Transformations\Transformations\obj\Debug\net9.0-windows\Transformations.genruntimeconfig.cache
 C:\Users\londelord\RiderProjects\Transformations\Transformations\obj\Debug\net9.0-windows\ref\Transformations.dll
-C:\Users\londelord\RiderProjects\Transformations\Transformations\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\londelord\RiderProjects\Transformations\Transformations\obj\Debug\net9.0-windows\Transformations.sourcelink.json

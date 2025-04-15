@@ -1,10 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Media.Media3D;
 
 namespace Transformations.ViewModel;
 
-public class MainViewModel : INotifyPropertyChanged
+public sealed class MainViewModel : INotifyPropertyChanged
 {
     private double _x;
     private double _y;
@@ -15,7 +15,12 @@ public class MainViewModel : INotifyPropertyChanged
     private double _rotationX;
     private double _rotationY;
     private double _rotationZ;
-
+    private bool _isReflectedByXOY;
+    private bool _isReflectedByXOZ;
+    private bool _isReflectedByYOZ;
+    private string _selectedProjection;
+    
+    public ObservableCollection<string> Projections { get; }
     public double X
     {
         get => _x;
@@ -106,9 +111,58 @@ public class MainViewModel : INotifyPropertyChanged
         }
     }
 
+    public bool IsReflectedByXOY
+    {
+        get => _isReflectedByXOY;
+        set
+        {
+            _isReflectedByXOY = value;
+            OnPropertyChanged(nameof(IsReflectedByXOY));
+        }
+    }
+
+    public bool IsReflectedByXOZ
+    {
+        get => _isReflectedByXOZ;
+        set
+        {
+            _isReflectedByXOZ = value;
+            OnPropertyChanged(nameof(IsReflectedByXOZ));
+        }
+    }
+
+    public bool IsReflectedByYOZ
+    {
+        get => _isReflectedByYOZ;
+        set
+        {
+            _isReflectedByYOZ = value;
+            OnPropertyChanged(nameof(IsReflectedByYOZ));
+        }
+    }
+
+    public string SelectedProjection
+    {
+        get => _selectedProjection;
+        set
+        {
+            _selectedProjection = value;
+            OnPropertyChanged(nameof(SelectedProjection));
+            Console.WriteLine(_selectedProjection);
+        }
+    }
+
+    public MainViewModel(Action invalidate)
+    {
+        Projections = ["Axonometric", "Oblique", "CentralSinglePoint", "XoY", "YoZ", "XoZ"];
+        _selectedProjection = Projections[0];
+
+        PropertyChanged += (sender, args) => { invalidate(); };
+    }
+    
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }

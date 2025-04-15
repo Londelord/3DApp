@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Transformations"
         xmlns:viewModel="clr-namespace:Transformations.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="600" Width="900"
         >
     <Window.Resources>
         <Style TargetType="DockPanel">
@@ -16,9 +16,6 @@
             <Setter Property="Height" Value="25"></Setter>
         </Style>
     </Window.Resources>
-    <Window.DataContext>
-        <viewModel:MainViewModel></viewModel:MainViewModel>
-    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -62,16 +59,25 @@
                 <TextBox x:Name="RotateZInput" Text="{Binding RotationZ, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N2}}"/>
             </DockPanel>
             <DockPanel>
-                <CheckBox Content="Reflect XOY" x:Name="ReclectXOYInput"/>
+                <CheckBox Content="Reflect XOY" x:Name="ReclectXOYInput" 
+                          IsChecked="{Binding IsReflectedByXOY, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
-                <CheckBox Content="Reflect XOZ" x:Name="ReclectXOZInput"/>
+                <CheckBox Content="Reflect XOZ" x:Name="ReclectXOZInput"
+                          IsChecked="{Binding IsReflectedByXOZ, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
-                <CheckBox Content="Reflect YOZ" x:Name="ReclectYOZInput"/>
+                <CheckBox Content="Reflect YOZ" x:Name="ReclectYOZInput"
+                          IsChecked="{Binding IsReflectedByYOZ, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
-            
+            <DockPanel>
+                <ComboBox
+                          ItemsSource="{Binding Projections}"
+                          SelectedItem="{Binding SelectedProjection, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
         </StackPanel>
-        <Canvas Margin="16" Grid.Column="1" Background="White"></Canvas>
+        
+        <Canvas Margin="16" Grid.Column="1" Background="White" x:Name="MainCanvas"></Canvas>
+        
     </Grid>
 </Window>
