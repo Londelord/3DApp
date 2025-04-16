@@ -7,6 +7,7 @@
         xmlns:viewModel="clr-namespace:Transformations.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="900"
+        Loaded="MainWindow_OnLoaded"
         >
     <Window.Resources>
         <Style TargetType="DockPanel">
@@ -60,15 +61,15 @@
             </DockPanel>
             <DockPanel>
                 <CheckBox Content="Reflect XOY"
-                          IsChecked="{Binding IsReflectedByXOY, UpdateSourceTrigger=PropertyChanged}"/>
+                          IsChecked="{Binding IsReflectedByXoY, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
                 <CheckBox Content="Reflect XOZ"
-                          IsChecked="{Binding IsReflectedByXOZ, UpdateSourceTrigger=PropertyChanged}"/>
+                          IsChecked="{Binding IsReflectedByXoZ, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
                 <CheckBox Content="Reflect YOZ"
-                          IsChecked="{Binding IsReflectedByYOZ, UpdateSourceTrigger=PropertyChanged}"/>
+                          IsChecked="{Binding IsReflectedByYoZ, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel>
                 <ComboBox

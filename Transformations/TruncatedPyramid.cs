@@ -114,6 +114,45 @@ public sealed class TruncatedPyramid : Shape
         return rotationMatrix;
     }
 
+    public void ReflectYoZ()
+    {
+        double[,] reflectMatrix =
+        {
+            { -1, 0, 0, 0 },
+            { 0, 1, 0, 0 },
+            { 0, 0, 1, 0 },
+            { 0, 0, 0, 1 }
+        };
+
+        TransformMatrix = Matrix.MultiplyMatrices(TransformMatrix, reflectMatrix);
+    }
+
+    public void ReflectXoZ()
+    {
+        double[,] reflectMatrix =
+        {
+            { 1, 0, 0, 0 },
+            { 0, -1, 0, 0 },
+            { 0, 0, 1, 0 },
+            { 0, 0, 0, 1 }
+        };
+
+        TransformMatrix = Matrix.MultiplyMatrices(TransformMatrix, reflectMatrix);
+    }
+
+    public void ReflectXoY()
+    {
+        double[,] reflectMatrix =
+        {
+            { -1, 0, 0, 0 },
+            { 0, 1, 0, 0 },
+            { 0, 0, 1, 0 },
+            { 0, 0, 0, 1 }
+        };
+
+        TransformMatrix = Matrix.MultiplyMatrices(TransformMatrix, reflectMatrix);
+    }
+    
     public override double[,] GetTransformedVertices()
     {
         var tmp = Matrix.MultiplyMatrices(DefaultVerticesMatrix, TransformMatrix);

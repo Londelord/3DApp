@@ -15,9 +15,9 @@ public sealed class MainViewModel : INotifyPropertyChanged
     private double _rotationX;
     private double _rotationY;
     private double _rotationZ;
-    private bool _isReflectedByXOY;
-    private bool _isReflectedByXOZ;
-    private bool _isReflectedByYOZ;
+    private bool _isReflectedByXoY;
+    private bool _isReflectedByXoZ;
+    private bool _isReflectedByYoZ;
     private string _selectedProjection;
     
     public ObservableCollection<string> Projections { get; }
@@ -111,33 +111,33 @@ public sealed class MainViewModel : INotifyPropertyChanged
         }
     }
 
-    public bool IsReflectedByXOY
+    public bool IsReflectedByXoY
     {
-        get => _isReflectedByXOY;
+        get => _isReflectedByXoY;
         set
         {
-            _isReflectedByXOY = value;
-            OnPropertyChanged(nameof(IsReflectedByXOY));
+            _isReflectedByXoY = value;
+            OnPropertyChanged(nameof(IsReflectedByXoY));
         }
     }
 
-    public bool IsReflectedByXOZ
+    public bool IsReflectedByXoZ
     {
-        get => _isReflectedByXOZ;
+        get => _isReflectedByXoZ;
         set
         {
-            _isReflectedByXOZ = value;
-            OnPropertyChanged(nameof(IsReflectedByXOZ));
+            _isReflectedByXoZ = value;
+            OnPropertyChanged(nameof(IsReflectedByXoZ));
         }
     }
 
-    public bool IsReflectedByYOZ
+    public bool IsReflectedByYoZ
     {
-        get => _isReflectedByYOZ;
+        get => _isReflectedByYoZ;
         set
         {
-            _isReflectedByYOZ = value;
-            OnPropertyChanged(nameof(IsReflectedByYOZ));
+            _isReflectedByYoZ = value;
+            OnPropertyChanged(nameof(IsReflectedByYoZ));
         }
     }
 
@@ -154,7 +154,7 @@ public sealed class MainViewModel : INotifyPropertyChanged
 
     public MainViewModel(Action invalidate)
     {
-        Projections = ["Axonometric", "Oblique", "CentralSinglePoint", "XoY", "YoZ", "XoZ"];
+        Projections = ["Oblique", "CentralSinglePoint", "XoY", "YoZ", "XoZ"];
         _selectedProjection = Projections[0];
 
         PropertyChanged += (sender, args) => { invalidate(); };
